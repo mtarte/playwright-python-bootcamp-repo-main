@@ -14,6 +14,8 @@ from tests.ui.test_cases.steps import (
 
 pytestmark = [pytest.mark.ui, pytest.mark.testcases]
 
+# Test Case 2: Valid Credentials. See https://automationexercise.com/test_cases
+
 def test_tc02_valid_credentials(app,new_user):
     # 1. Launch browser
     # 2. Navigate to url 'http://automationexercise.com'

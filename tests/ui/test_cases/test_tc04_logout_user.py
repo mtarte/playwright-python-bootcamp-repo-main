@@ -1,3 +1,6 @@
+# Test Case 4: Logout User Successfully. See https://automationexercise.com/test_cases
+
+
 import email
 from hmac import new
 import re
@@ -11,6 +14,8 @@ from tests.ui.test_cases.steps import (
 )
 
 pytestmark = [pytest.mark.ui, pytest.mark.testcases]
+
+# Test Case 4: Logout User Successfully. See https://automationexercise.com/test_cases
 
 def test_tc04_logout_user(app,new_user):
     # 1. Launch browser
