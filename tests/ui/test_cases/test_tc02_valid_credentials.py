@@ -1,8 +1,5 @@
 """Test Case 2: Valid Credentials. See https://automationexercise.com/test_cases"""
 
-import email
-from hmac import new
-import re
 
 import pytest
 
