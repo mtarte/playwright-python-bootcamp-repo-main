@@ -1,4 +1,4 @@
-# Test Case 3: Login User with incorrect email and password. see :https://automationexercise.com/test_cases 
+# Test Case 3: Login User with incorrect email. see :https://automationexercise.com/test_cases 
 
 import pytest
 
@@ -8,8 +8,8 @@ from tests.ui.test_cases.steps import (
 
 pytestmark = [pytest.mark.ui, pytest.mark.testcases]
 
-# Test Case 3: Login User with incorrect email and password.
-def test_tc03_invalid_credentials(app,new_user):
+# Test Case 3: Login User with incorrect email.
+def test_tc03_incorrect_email(app,new_user):
     
     # 1. Launch browser
     # 2. Navigate to url 'http://automationexercise.com'
