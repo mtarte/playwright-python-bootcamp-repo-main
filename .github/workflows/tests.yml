@@ -62,12 +62,12 @@ jobs:
             test-results/
 
   publish-report:
-    # Publishes the latest reports from main to GitHub Pages.
-    # One time setup: repo Settings, Pages, Source = "GitHub Actions".
+    # Builds a combined HTML report. Deploys to GitHub Pages only when Pages is
+    # already enabled (Settings → Pages → Source = "GitHub Actions").
+    # GITHUB_TOKEN cannot create a Pages site, so configure-pages 404s until then.
     needs: [api, ui]
     if: always() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    continue-on-error: true
     permissions:
       pages: write
       id-token: write
@@ -95,9 +95,30 @@ jobs:
             done
             echo "</ul>"
           } > site/index.html
+      - name: Upload combined reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-reports
+          path: site
+      - name: Check GitHub Pages
+        id: pages-check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${{ github.repository }}/pages" >/dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is not enabled; skipping deploy."
+            echo "HTML reports are available as the combined-reports artifact."
+            echo "To publish to Pages: Settings → Pages → Source = GitHub Actions, then re-run."
+          fi
       - uses: actions/configure-pages@v5
+        if: steps.pages-check.outputs.enabled == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages-check.outputs.enabled == 'true'
         with:
           path: site
       - id: deploy
+        if: steps.pages-check.outputs.enabled == 'true'
         uses: actions/deploy-pages@v4
