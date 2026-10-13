@@ -25,7 +25,7 @@ def test_tc12_add_products_cart(app):
     add_first_product_from_home(app)
 
     #7. Hover over second product and click 'Add to cart'
-    app.products.add_to_cart(1, continue_shopping=False)
+    app.products.add_to_cart(1,continue_shopping=False)
     
 
     #8. Click 'View Cart' button
