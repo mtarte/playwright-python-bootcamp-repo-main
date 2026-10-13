@@ -18,10 +18,7 @@ def test_tc01_register_user(app, signup_user):
     verify_home_page_visible(app)                             # 3
     
     app.nav.login_link.click()                                # 4
-    assert app.login.login_heading.inner_text() == "Login to your account"  # 5
-
-    app.nav.signup_link.click()
-    assert app.login.new_user_signup_visible.is_visible()
+    assert app.login.signup_heading.inner_text() == "New User Signup!"  # 5
     
     app.login.start_signup(signup_user["name"], signup_user["email"])  # 6-7
     assert app.signup.account_info_heading.is_visible()   # 8
