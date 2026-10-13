@@ -1,3 +1,4 @@
+"""Test case 11: Subscribe in Cart Page"""
 import pytest
 from autoexercise.pages.app import App
 from tests.ui.test_cases.steps import verify_home_page_visible
