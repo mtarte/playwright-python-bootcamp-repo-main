@@ -18,6 +18,12 @@ def verify_home_page_visible(app: App) -> None:
     assert app.home.slider.is_visible(), "Home slider should be visible"
 
 
+def verify_products_page_visible(app: App) -> None:
+    """'Verify user is navigated to ALL PRODUCTS page successfully' and the list is visible."""
+    assert app.products.all_products_heading.is_visible(), "ALL PRODUCTS heading should be visible"
+    assert app.products.cards.first.is_visible(), "Products list should be visible"
+
+
 def sign_up_through_ui(app: App, user: dict) -> None:
     """Start signup, fill the account form, create the account, press Continue."""
     app.login.start_signup(user["name"], user["email"])

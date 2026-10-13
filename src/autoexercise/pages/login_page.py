@@ -17,6 +17,17 @@ class LoginPage(BasePage):
         return self.page.locator(".signup-form h2")
 
     @property
+    def new_user_signup_visible(self) -> Locator:
+        return self.page.locator(".signup-form h2").is_visible()
+
+    @property
+    def signup_name(self) -> Locator:
+        return self.page.get_by_test_id("signup-name")
+    @property
+    def signup_email(self) -> Locator:
+        return self.page.get_by_test_id("signup-email")
+
+    @property
     def error_message(self) -> Locator:
         return self.page.get_by_text("Your email or password is incorrect!")
 

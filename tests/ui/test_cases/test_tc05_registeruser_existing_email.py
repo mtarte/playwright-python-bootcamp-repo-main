@@ -1,13 +1,11 @@
 # Test Case 5: Register User with existing email. See https://automationexercise.com/test_cases 
 
 import pytest
-from autoexercise.pages.login_page import LoginPage
 
 from tests.ui.test_cases.steps import (
-    delete_account_through_ui,
     verify_home_page_visible,
-    verify_logged_in_as,
 )
+
 pytestmark = [pytest.mark.ui, pytest.mark.testcases]
 
 def test_tc05_registeruser_existing_email(app, signup_user):

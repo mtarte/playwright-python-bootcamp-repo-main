@@ -31,7 +31,8 @@ def test_tc08_verify_product_pro_details(app):
     assert "/product_details/" in app.page.url
     assert app.product_detail.info.is_visible()
 
-    # 9. Verify that detail is visible: product name, category, price, availability, condition, brand
+    # 9. Verify that detail is visible: product name, category, 
+    # price, availability, condition, brand
     assert app.product_detail.name.is_visible()
     assert app.product_detail.label("Category:").is_visible()
     assert app.product_detail.price.is_visible()

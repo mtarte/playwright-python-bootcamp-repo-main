@@ -1,3 +1,6 @@
+from playwright.sync_api import Page
+
+
 class LoginPage:
     # __int
     def __init__(self, page: Page) -> None:

@@ -26,6 +26,9 @@ class ContactPage(BasePage):
         self.page.get_by_test_id("subject").fill(subject)
         self.page.get_by_test_id("message").fill(message)
         self.page.locator("input[name=upload_file]").set_input_files(str(file_path))
+        # The submit handler is an inline script at the end of the page; clicking before
+        # it runs does a plain POST that reloads the form without the success message.
+        self.page.wait_for_load_state("load")
         # The site asks for confirmation in a browser dialog. Register the handler first.
         self.page.once("dialog", lambda dialog: dialog.accept())
         # Click the submit input (it's an <input type='submit'>, not a button)

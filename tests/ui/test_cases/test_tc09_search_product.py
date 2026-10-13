@@ -35,4 +35,5 @@ def test_tc09_search_product(app):
     names = app.products.names.all_inner_texts()
     assert names, "Search should return at least one product"
     for name in names:
-        assert searched_product.lower() in name.lower(), f"'{name}' does not match '{searched_product}'"
+        assert searched_product.lower() in name.lower(), f"'{name}' \
+        does not match '{searched_product}'"
