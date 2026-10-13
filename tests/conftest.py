@@ -14,7 +14,7 @@ def base_url() -> str:
     """Overrides the pytest-base-url fixture so page.goto('/x') uses our config."""
     return settings.ui_base_url
 
-
+# This is a workaround to allow the use of data-qa attributes in the UI tests.
 @pytest.fixture(scope="session", autouse=True)
 def use_data_qa_attribute(playwright):
     """The site marks form elements with data-qa, so get_by_test_id reads that attribute."""
