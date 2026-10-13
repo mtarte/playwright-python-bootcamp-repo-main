@@ -65,8 +65,8 @@ class Footer:
         self.page.locator("#footer").scroll_into_view_if_needed()
 
     def subscribe(self, email: str) -> None:
-        # The site's own id is spelled "subscribe_email".
-        self.page.locator("#subscribe_email").fill(email)
+        # The site's own id is misspelled "susbscribe_email"; do not "correct" it.
+        self.page.locator("#susbscribe_email").fill(email)
         # The subscribe handler is attached by page scripts; 
         # clicking before load does a plain submit.
         self.page.wait_for_load_state("load")

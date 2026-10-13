@@ -25,14 +25,13 @@ def test_tc08_verify_product_pro_details(app):
     verify_products_page_visible(app)
 
     # 7. Click on 'View Product' of first product
-    app.products.view_product(0)
+    app.products.open_product_details(app.products.cards.first)
 
     # 8. User is landed to product detail page
-    assert "/product_details/" in app.page.url
-    assert app.product_detail.info.is_visible()
+    assert "/product_details/1" in app.page.url
 
-    # 9. Verify that detail is visible: product name, category, 
-    # price, availability, condition, brand
+    # 9. Verify that detail is visible: product name, 
+    # category, price, availability, condition, brand
     assert app.product_detail.name.is_visible()
     assert app.product_detail.label("Category:").is_visible()
     assert app.product_detail.price.is_visible()
