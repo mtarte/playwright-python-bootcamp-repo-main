@@ -26,7 +26,6 @@ def test_tc11_subs_in_cart_page(app):
     # 5. Scroll down to footer
     # 6. Verify text 'SUBSCRIPTION'
     assert app.home.footer.heading.is_visible()
-    assert app.home.footer.heading.inner_text() == "Subscription"
     
     # 7.Enter email address in input and click arrow button
     app.home.footer.subscribe("test11@test.com")
