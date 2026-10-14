@@ -11,7 +11,6 @@ from tests.ui.test_cases.steps import (
     verify_address_and_review,
     verify_home_page_visible,
     verify_logged_in_as,
-   
 )
 
 
