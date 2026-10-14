@@ -28,7 +28,6 @@ def test_tc13_product_quantity_cart(app):
 #  6. Increase quantity to 4   
     app.product_detail.set_quantity(4)
 
-
 # 7. Click 'Add to cart' button
     app.product_detail.add_to_cart()
 
