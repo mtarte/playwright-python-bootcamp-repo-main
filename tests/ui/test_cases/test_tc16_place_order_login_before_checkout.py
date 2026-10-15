@@ -1,15 +1,15 @@
 """test case for placing an order after logging in before checkout"""
 import pytest
+
 from autoexercise.data import build_card
-
-from tests.ui.test_cases.steps import verify_home_page_visible
-
-from tests.ui.test_cases.steps import verify_logged_in_as
-from tests.ui.test_cases.steps import add_first_product_from_home
-from tests.ui.test_cases.steps import verify_address_and_review
-from tests.ui.test_cases.steps import place_order_and_pay
-from tests.ui.test_cases.steps import delete_account_through_ui
-
+from tests.ui.test_cases.steps import (
+    add_first_product_from_home,
+    delete_account_through_ui,
+    place_order_and_pay,
+    verify_address_and_review,
+    verify_home_page_visible,
+    verify_logged_in_as,
+)
 
 
 @pytest.mark.ui

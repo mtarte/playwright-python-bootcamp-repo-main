@@ -1,7 +1,5 @@
 """Test case for viewing category products"""
 
-from os import name
-from unicodedata import category
 import pytest
 
 from tests.ui.test_cases.steps import verify_home_page_visible

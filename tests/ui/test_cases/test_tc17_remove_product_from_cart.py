@@ -1,9 +1,7 @@
-from email import message
 import pytest
 from playwright.sync_api import expect
 
 from tests.ui.test_cases.steps import (
-    add_first_product_from_home,
     verify_home_page_visible,
 )
 
